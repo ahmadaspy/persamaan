@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'template.template');
+Route::view('/login', 'template.login');
+// Route::get('/', 'Home@halaman_awal')->name('halaman_awal');
+Route::get('/Materi', 'Materi@materi')->name('materi');
