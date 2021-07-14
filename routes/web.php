@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Home;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'template.template');
+// Route::view('/', 'template.template');
 Route::view('/login', 'template.login');
-// Route::get('/', 'Home@halaman_awal')->name('halaman_awal');
+Route::view('/home', 'home');
+Route::get('/', [Home::class, 'home'])->name('home');
 Route::get('/Materi', 'Materi@materi')->name('materi');

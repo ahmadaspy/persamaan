@@ -1,0 +1,106 @@
+.navbar {
+    background-image: linear-gradient(to right, #94e7c2, #4FB286);
+}
+
+.fa-bars {
+    color: white;
+}
+
+.navbar-nav li a {
+    color: white !important;
+    float: right;
+    text-align: left;
+}
+
+.promo-title {
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 100px;
+}
+
+#carouselExampleControls {
+    margin-top: 100px;
+}
+
+
+/* .carousel-item {
+    object-fit: cover;
+    height: ;
+} */
+
+
+/* .carousel-inner {
+    object-fit: cover;
+    height: 500px;
+    margin: 0;
+} */
+
+.fill img {
+    object-fit: cover;
+    width: 50px;
+    height: 500px;
+}
+
+#promo-title2 {
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 100px;
+}
+
+#banner {
+    background-image: linear-gradient(to right, #94e7c2, #4FB286);
+    /* background-color:  #4FB286; */
+    text-decoration: none;
+}
+
+#banner p {
+    color: white;
+}
+
+.bottom-img {
+    width: 100%;
+}
+
+#isi2 p {
+    font-size: 30px;
+}
+
+#button {
+    color: white;
+    background-color: #4FB286;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#button:hover {
+    background-color: #94e7c2;
+    color: white;
+}
+
+#footer {
+    background-image: linear-gradient(to right, #94e7c2, #4FB286);
+    color: white;
+    margin-top: 100px;
+}
+
+.footer-img {
+    width: 100%;
+}
+
+#social-media img {
+    width: 60px;
+    transition: 0.5s;
+}
+
+#social-media a:hover img {
+    transform: translateY(-10px);
+}
+
+#copyright {
+    margin-top: 20px;
+}
+
+#find-me {
+    font-size: 30px;
+}
