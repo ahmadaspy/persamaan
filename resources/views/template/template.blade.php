@@ -34,7 +34,7 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #4FB286" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-vials"></i>
                 </div>
@@ -46,12 +46,12 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('panduan')}}">
                     <i class="fas fa-campground"></i>
                     <span>Panduan</span></a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('kikd')}}">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <span>KI | KD</span></a>
             </li>
@@ -153,7 +153,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Thesis Universitas Lambung Mangkurat</span>
+                        <span>Copyright &copy; Ahmad Aspiannoor</span>
                     </div>
                 </div>
             </footer>

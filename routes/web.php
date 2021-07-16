@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Home;
+use App\Http\Controllers\Materi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::view('/login', 'template.login');
 Route::view('/home', 'home');
 Route::get('/', [Home::class, 'home'])->name('home');
-Route::get('/Materi', 'Materi@materi')->name('materi');
+Route::get('/panduan', [Materi::class, 'panduan'])->name('panduan');
+Route::get('/kikd', [Materi::class, 'kikd'])->name('kikd');
