@@ -21,7 +21,11 @@
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> --}}
     <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
     {{-- <link rel="stylesheet" href="{{asset('mycostumecss.css')}}"> --}}
-
+    <style>
+        #bars{
+            color: #4FB286
+        }
+    </style>
     @yield('script')
 
 </head>
@@ -45,8 +49,10 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('panduan')}}">
+            <li class="nav-item @if (Request::is('videopanduan') or Request::is('deskripsipanduan'))
+            active
+            @endif">
+                <a class="nav-link" href="{{route('videopanduan')}}">
                     <i class="fas fa-campground"></i>
                     <span>Panduan</span></a>
             </li>
@@ -123,16 +129,16 @@
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
+                        <i class="fa fa-bars" id="bars"></i>
                     </button>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="" class="nav-link"><i class="fas fa-home fa-2x" id="home-icon"></i></a>
+                            <a href="" class="nav-link" ><i class="fas fa-home fa-2x" id="home-icon"></i></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="" class="nav-link"><i class="fas fa-envelope-open-text fa-2x" id="home-icon"></i></a>
+                            <a href="" class="nav-link" ><i class="fas fa-envelope-open-text fa-2x" id="home-icon"></i></a>
                         </li>
                     </ul>
                 </nav>

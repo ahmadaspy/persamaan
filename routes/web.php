@@ -19,5 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::view('/login', 'template.login');
 Route::view('/home', 'home');
 Route::get('/', [Home::class, 'home'])->name('home');
-Route::get('/panduan', [Materi::class, 'panduan'])->name('panduan');
+Route::get('/videopanduan', [Materi::class, 'videopanduan'])->name('videopanduan');
+Route::get('/deskripsipanduan', [Materi::class, 'deskripsipanduan'])->name('deskripsipanduan');
 Route::get('/kikd', [Materi::class, 'kikd'])->name('kikd');
