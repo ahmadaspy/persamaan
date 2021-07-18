@@ -22,3 +22,4 @@ Route::get('/', [Home::class, 'home'])->name('home');
 Route::get('/videopanduan', [Materi::class, 'videopanduan'])->name('videopanduan');
 Route::get('/deskripsipanduan', [Materi::class, 'deskripsipanduan'])->name('deskripsipanduan');
 Route::get('/kikd', [Materi::class, 'kikd'])->name('kikd');
+Route::view('/video', 'test');

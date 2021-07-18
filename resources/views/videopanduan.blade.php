@@ -5,14 +5,21 @@
         width: 80%;
         height: auto;
     }
+    #petunjuk{
+        font-size: 10px
+    }
 </style>
 <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
 @endsection
 @section('konten')
+<p>Tekan tombol <i class="fas fa-play-circle"></i> untuk memulai video</p>
+<p>Tekan tombol <i class="fas fa-expand"></i> untuk memperbesar video</p>
 <video width="400" controls>
-    <source src="{{asset('assets/Cheater Cod MW.mp4')}}" type="video/mp4">
+    <source src="assets/Cheater Cod MW.mp4" type="video/mp4">
     Your browser does not support HTML5 video.
 </video>
+{{-- <iframe src="/assets/Cheater Cod MW.mp4"></iframe> --}}
+<p id="petunjuk"><em>Apabila kalian mengalami masalah koneksi lelet kalian bisa klik <a href="{{route('deskripsipanduan')}}">deskripsi</a></em></p>
     {{-- <div class="embed-responsive embed-responsive-16by9">
         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7mFR_0ykir8"></iframe>
     </div> --}}

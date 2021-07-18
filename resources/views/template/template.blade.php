@@ -56,7 +56,9 @@
                     <i class="fas fa-campground"></i>
                     <span>Panduan</span></a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item @if (Request::is('kikd'))
+                active
+            @endif">
                 <a class="nav-link" href="{{route('kikd')}}">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <span>KI | KD</span></a>
