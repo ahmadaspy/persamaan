@@ -25,6 +25,10 @@
         #bars{
             color: #4FB286
         }
+        #button_out{
+            background-color: #4FB286;
+            color: white;
+        }
     </style>
     @yield('script')
 
@@ -127,25 +131,59 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars" id="bars"></i>
-                    </button>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="" class="nav-link" ><i class="fas fa-home fa-2x" id="home-icon"></i></a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="" class="nav-link" ><i class="fas fa-envelope-open-text fa-2x" id="home-icon"></i></a>
-                        </li>
-                    </ul>
-                </nav>
+            <!-- Sidebar Toggle (Topbar) -->
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+            </button>
 
-                <!-- End of Topbar -->
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+
+                <div class="topbar-divider d-none d-sm-block"></div>
+
+                <!-- Nav Item - User Information -->
+                @auth
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-users"></i>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small ml-2"> {{ auth()->user()->name }} </span>
+                    </a>
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a class="dropdown-item disabled" href="#">
+                            {{-- <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> --}}
+                            {{auth()->user()->name}}
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </a>
+                    </div>
+                </li>
+                @endauth
+
+                {{-- @guest
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}" id="Register">
+                        <span>Register</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login" id="Login">
+                        <span>Login</span>
+                    </a>
+                </li>
+                @endguest --}}
+            </ul>
+
+        </nav>
+            <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -184,15 +222,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Mau keluar ?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Pilih "Logout" apabila kalian ingin keluar dari session ini</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn" id="button_out" href="{{route('logout')}}">Logout</a>
                 </div>
             </div>
         </div>
@@ -211,11 +249,11 @@
     <script src="{{asset('assets/js/sb-admin-2.min.js') }}"></script>
 
     <!-- Page level plugins -->
-    <script src="{{asset('assets/vendor/chart.js/Chart.min.js') }}"></script>
+    {{-- <script src="{{asset('assets/vendor/chart.js/Chart.min.js') }}"></script> --}}
 
     <!-- Page level custom scripts -->
-    <script src="{{asset('assets/js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{asset('assets/js/demo/chart-pie-demo.js') }}"></script>
+    {{-- <script src="{{asset('assets/js/demo/chart-area-demo.js') }}"></script> --}}
+    {{-- <script src="{{asset('assets/js/demo/chart-pie-demo.js') }}"></script> --}}
 
     @yield('scriptbawah')
 </body>

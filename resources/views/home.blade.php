@@ -83,10 +83,10 @@
         </div>
         <div class="row text-center">
             <div class="col">
-                <button class="btn" id="button">Register</button>
+                <a href="{{route('register')}}" class="btn" id="button">Register</a>
             </div>
             <div class="col">
-                <button class="btn" id="button">Login</button>
+                <a href="{{route('loginview')}}" class="btn" id="button">Login</a>
             </div>
         </div>
     </div>

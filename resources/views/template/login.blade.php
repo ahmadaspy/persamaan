@@ -26,6 +26,7 @@
                 color: #4FB286;
             }
         </style>
+        @yield('scriptatas')
     </head>
     <body>
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -38,12 +39,12 @@
             </a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="" id="Register">
+                    <a class="nav-link" href="{{route('register')}}" id="Register">
                         <span>Register</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login" id="Login">
+                    <a class="nav-link" href="{{route('loginview')}}" id="Login">
                         <span>Login</span>
                     </a>
                 </li>
@@ -60,7 +61,7 @@
                       <!-- Nested Row within Card Body -->
                       <div class="row">
                         <div class="col-lg-6 d-none d-lg-block" id="resize">
-                          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                          <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
                               <div class="carousel-inner">
                                 <div class="carousel-item active fill">
                                   <img src="{{ asset('img/1.png') }}" class="d-block w-100" alt="...">
@@ -72,11 +73,11 @@
                                   <img src="{{ asset('img/3.png') }}" class="d-block w-100" alt="...">
                                 </div>
                               </div>
-                              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                              <a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                               </a>
-                              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                              <a class="carousel-control-next" href="#carouselExampleControls1" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                               </a>
