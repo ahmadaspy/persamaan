@@ -33,64 +33,41 @@
     </nav>
     {{-- isi 1 --}}
     <section id="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="promo-title">Sistem Persamaan Linear Tiga Variabel</p>
-                    <p>
-                        Belajar matematika bisa menyenangkan kapanpun dan dimanapun
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active fill">
-                                <img src="{{ asset('img/1.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item fill">
-                                <img src="{{ asset('img/2.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item fill">
-                                <img src="{{ asset('img/3.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <img src="{{asset('img/wave1.png')}}" class="bottom-img">
     </section>
 
-    {{-- isi 2 --}}
-
-    <div class="container">
-        <div id="isi2" class="row text-center">
-            <div class="col">
-                <p>Daftarkan diri kalian siswa !</p>
-
+    <div id="isi">
+        <div class="container">
+            <div class="row">
+                <h1>Tentang Aplikasi</h1>
+                <div class="col-8">
+                    <p>Aplikasi ini dibuat sebagaimana bertujuan untuk mempermudah para siswa dalam memahami materi
+                        persamaan linear tiga variabel kelas X SMA/MA.
+                        Aplikasi ini juga bertujuan untuk memenuhi persyartaan dalam memenuhi
+                        menyelsaikan pendidikan strata-1 FKIP Universitas Lambung Mangkurat.
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img id="icon2" src="{{asset('img/icon.png')}}" alt="">
+                </div>
             </div>
-            <div class="col">
-                <p>Kalian sudah mempunyai akun ? Login disini</p>
-
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col">
-                <a href="{{route('register')}}" class="btn" id="button">Register</a>
-            </div>
-            <div class="col">
-                <a href="{{route('loginview')}}" class="btn" id="button">Login</a>
+            <div class="row">
+                    <h1 id="h1-right">Tentang Pengembang</h1>
+                <div class="col-4">
+                    <img id="foto-pengembang" src="{{asset('img/IMG_24882.JPG')}}" alt="">
+                </div>
+                <div class="col-8">
+                    <p>Bernama Ahmad Aspiannoor seorang mahasiswa yang ingin lulus tapi susah lulus,
+                        aplikasi ini merupakan buatannya karena pengen lulus.
+                        berkuliah di Universitas Lambung Mangkurat jurusan Pendidikan Ilmu Komputer.
+                    </p>
+                    <p id="qoute">-susah adalah ke enakan yang tertunda-</p>
+                </div>
             </div>
         </div>
     </div>
+
     {{-- footer --}}
     <section id="footer">
         <img src="{{asset('img/wave2.png')}}" class="footer-img">

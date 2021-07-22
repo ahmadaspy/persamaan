@@ -1,4 +1,7 @@
 @extends('template.template')
+@section('title')
+KI dan KD
+@endsection
 @section('content')
 <div class="card shadow mb-4">
     <div class="card-header py-3">

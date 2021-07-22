@@ -21,6 +21,7 @@
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> --}}
     <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
     {{-- <link rel="stylesheet" href="{{asset('mycostumecss.css')}}"> --}}
+    <link rel="icon" href="{{asset('img/icon.png')}}">
     <style>
         #bars{
             color: #4FB286
@@ -28,6 +29,12 @@
         #button_out{
             background-color: #4FB286;
             color: white;
+        }
+        #logo{
+            height: 40px;
+        }
+        .card-header h6{
+            color:#4FB286 !important;
         }
     </style>
     @yield('script')
@@ -44,7 +51,8 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-vials"></i>
+                    {{-- <i class="fas fa-vials"></i> --}}
+                    <img src="{{asset('img/icon.png')}}" alt="" id="logo">
                 </div>
                 <div class="sidebar-brand-text mx-2">SPLTV</div>
             </a>
@@ -109,7 +117,7 @@
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item ">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('about')}}">
                     <i class="fas fa-address-card"></i>
                     <span>Tentang Kita</span></a>
             </li>

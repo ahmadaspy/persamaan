@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AuthUser extends Controller
 {
@@ -17,6 +18,9 @@ class AuthUser extends Controller
         return view('register');
     }
     public function postregister(Request $request){
+        $code = $request->code_referral;
+        $code_ref = User::where('code_referral', $code)->value('code_referral');
+        dd($code_ref);
         try{
             $user = new User;
             $user->level = 'siswa';
@@ -24,11 +28,15 @@ class AuthUser extends Controller
             $user->email = $request->email;
             $user->password = $request->password;
             $user->remember_token = Str::random(40);
+            $code = $request->code_referral;
+            if($request->code_referral==DB::table('users')->where('code_refferal', $code)){
+                return redirect()->route('register')->with('gagal', 'Code referral tidak ditemukan');
+            }
             $user->save();
             Auth::login($user);
             return redirect()->route('videopanduan');
         }
-        catch(Exception){
+        catch(Exception $e){
             // dd($e->getMessage());
             return redirect()->route('register')->with('gagal', 'Email sudah ada terdaftar');
         }

@@ -1,4 +1,7 @@
 @extends('template.panduan')
+@section('title')
+Panduan
+@endsection
 @section('script')
 <style>
     video {

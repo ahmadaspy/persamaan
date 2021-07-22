@@ -2,6 +2,9 @@
 @section('scriptatas')
 <link href="{{asset('CustomCSS/CustomStyle.css')}}" rel="stylesheet">
 @endsection
+@section('title')
+Register
+@endsection
 @section('alert')
     @if (session()->has('gagal'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -28,6 +31,9 @@
             <div class="col-sm-6">
                 <input type="password" class="form-control form-control-user" placeholder="Konfirmasi Password" id="password2" required>
             </div>
+        </div>
+        <div class="form-group">
+            <input type="number" name="code_referral" class="form-control form-control-user" placeholder="Kode dari guru kamu" required>
         </div>
         <button class="btn" id="button" type="submit" onclick="return Validate()">Register</button>
     </form>
