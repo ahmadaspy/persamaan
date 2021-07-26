@@ -22,6 +22,7 @@ class User extends Authenticatable
         'password',
         'level',
         'code_referral',
+        'nama_guru',
     ];
 
     /**

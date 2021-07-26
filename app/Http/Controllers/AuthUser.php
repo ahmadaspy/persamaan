@@ -19,28 +19,27 @@ class AuthUser extends Controller
     }
     public function postregister(Request $request){
         $code = $request->code_referral;
-        $code_ref = User::where('code_referral', $code)->value('code_referral');
-        dd($code_ref);
-        try{
-            $user = new User;
-            $user->level = 'siswa';
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = $request->password;
-            $user->remember_token = Str::random(40);
-            $code = $request->code_referral;
-            if($request->code_referral==DB::table('users')->where('code_refferal', $code)){
-                return redirect()->route('register')->with('gagal', 'Code referral tidak ditemukan');
+        $nama_guru = User::where('code_referral', $code)->value('name');
+        if($nama_guru!=null){
+            try{
+                $user = new User;
+                $user->level = 'siswa';
+                $user->name = $request->name;
+                $user->email = $request->email;
+                $user->password = $request->password;
+                $user->remember_token = Str::random(40);
+                $user->nama_guru = $nama_guru;
+                $user->save();
+                Auth::login($user);
+                return redirect()->route('videopanduan');
             }
-            $user->save();
-            Auth::login($user);
-            return redirect()->route('videopanduan');
+            catch(Exception){
+                // dd($e->getMessage());
+                return redirect()->route('register')->with('gagal', 'Email sudah ada terdaftar');
+            }
+        }else{
+            return redirect()->route('register')->with('gagal', 'Kode Referral tidak ditemukan');
         }
-        catch(Exception $e){
-            // dd($e->getMessage());
-            return redirect()->route('register')->with('gagal', 'Email sudah ada terdaftar');
-        }
-
     }
     public function loginview(){
         if(Auth::user()){
@@ -49,7 +48,11 @@ class AuthUser extends Controller
         return view('login');
     }
     public function loginpost(Request $request){
+
         if(Auth::attempt($request->only('email', 'password'))){
+            if(Auth::user()->level == 'guru'){
+                dd('oke');
+            }
             return redirect()->route('videopanduan');
         }
         return redirect()->route('loginview')->with('gagal', 'Anda tidak terdaftar');
