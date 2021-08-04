@@ -19,7 +19,7 @@ class CheckLevel
         if(in_array($request->user()->level, $level)){
             return $next($request);
         }
-        return redirect()->route('videopanduan');
+        return redirect()->route('home');
 
     }
 }

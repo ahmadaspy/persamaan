@@ -42,16 +42,21 @@ class AuthUser extends Controller
         }
     }
     public function loginview(){
-        if(Auth::user()){
+        if(Auth::user() == null){
+            return view('login');
+        }
+        if(Auth::user()->level == 'siswa'){
             return redirect()->route('videopanduan');
         }
-        return view('login');
+        if(Auth::user()->level == 'guru'){
+            return redirect()->route('nilai_siswa');
+        }
     }
     public function loginpost(Request $request){
 
         if(Auth::attempt($request->only('email', 'password'))){
             if(Auth::user()->level == 'guru'){
-                dd('oke');
+                return redirect()->route('nilai_siswa');
             }
             return redirect()->route('videopanduan');
         }
