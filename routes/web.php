@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthUser;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\Materi;
+use App\Http\Controllers\Guru;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,14 @@ use Illuminate\Support\Facades\Route;
 // Route::view('/home', 'home');
 Route::get('/', [Home::class, 'home'])->name('home');
 Route::get('/about', [Home::class, 'about'])->name('about');
-Route::get('/videopanduan', [Materi::class, 'videopanduan'])->name('videopanduan');
-Route::get('/deskripsipanduan', [Materi::class, 'deskripsipanduan'])->name('deskripsipanduan');
-Route::get('/kikd', [Materi::class, 'kikd'])->name('kikd');
+Route::group(['middleware' => ['auth', 'Checklevel:siswa']], function(){
+    Route::get('/videopanduan', [Materi::class, 'videopanduan'])->name('videopanduan');
+    Route::get('/deskripsipanduan', [Materi::class, 'deskripsipanduan'])->name('deskripsipanduan');
+    Route::get('/kikd', [Materi::class, 'kikd'])->name('kikd');
+});
+Route::group(['middleware' => ['auth', 'Checklevel:guru']],function(){
+    Route::get('/nilai_siswa', [Guru::class, 'nilaisiswa'])->name('nilai_siswa');
+});
 Route::get('/register', [AuthUser::class, 'registerview'])->name('register');
 Route::post('/postregister', [AuthUser::class, 'postregister'])->name('postregister');
 Route::get('/login', [AuthUser::class, 'loginview'])->name('loginview');

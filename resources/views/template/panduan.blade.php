@@ -1,4 +1,9 @@
 @extends('template.template')
+@section('script')
+<style>
+    
+</style>
+@endsection
 @section('content')
 <div class="card text-center">
     <div class="card-header">
