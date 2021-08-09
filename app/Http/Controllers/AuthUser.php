@@ -19,7 +19,7 @@ class AuthUser extends Controller
     }
     public function postregister(Request $request){
         $code = $request->code_referral;
-        $nama_guru = User::where('code_referral', $code)->value('name');
+        $nama_guru = User::where('code_referral', $code)->where('level','guru')->value('name');
         if($nama_guru!=null){
             try{
                 $user = new User;
@@ -53,7 +53,6 @@ class AuthUser extends Controller
         }
     }
     public function loginpost(Request $request){
-
         if(Auth::attempt($request->only('email', 'password'))){
             if(Auth::user()->level == 'guru'){
                 return redirect()->route('nilai_siswa');

@@ -22,12 +22,19 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $collection = collect([ 'guru', 'admin']);
+        // $collection = collect([ 'guru', 'admin']);
+        $collection = collect([
+            ['nama' => 'sutijah', 'code_ref' => '1234'],
+            ['nama' => 'setoyo', 'code_ref' => '4321']
+        ]);
+        $guru = $collection->random();
         return [
             'name' => $this->faker->name(),
             'email' => $email = $this->faker->unique()->safeEmail(),
-            'level' => $collection->random(),
-            'code_referral' => random_int(0000,9999),
+            // 'level' => $collection->random(),
+            'level' => 'siswa',
+            'nama_guru' => $guru['nama'],
+            'code_referral' => $guru['code_ref'],
             'email_verified_at' => now(),
             'password' => $email,
             'remember_token' => Str::random(10),
