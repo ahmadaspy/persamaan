@@ -12,8 +12,11 @@ use Illuminate\Support\Facades\DB;
 class AuthUser extends Controller
 {
     public function registerview(){
-        if(Auth::user()){
+        if(Auth::user()->level == 'siswa'){
             return redirect()->route('videopanduan');
+        }
+        if(Auth::user()->level == 'guru'){
+            return redirect()->route('nilai_siswa');
         }
         return view('register');
     }

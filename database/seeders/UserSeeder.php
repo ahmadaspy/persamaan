@@ -9,6 +9,7 @@ use Database\Factories\GuruFactory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use Illmuinate\Support\Collection;
 
 
 
@@ -21,7 +22,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
         $collection = collect([
             ['nama' => 'sutijah', 'code_ref' => '1234'],
             ['nama' => 'setoyo', 'code_ref' => '4321']
@@ -46,9 +46,6 @@ class UserSeeder extends Seeder
         ]);
         // User::factory()->count(10)->create();
         // GuruFactory::factoryForModel('User')->count(2)->create();
-=======
-        User::factory()->count(4)->create();
->>>>>>> 8823c62af4d14511a50ccbff39e64c26092345ea
     }
 }
 
