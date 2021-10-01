@@ -19,10 +19,10 @@ Register
     <form action="{{route('postregister')}}" method="POST">
         @csrf
         <div class="form-group">
-            <input type="text" name="name" class="form-control form-control-user" placeholder="Nama Kamu" required>
+            <input type="text" name="name" class="form-control form-control-user" placeholder="Nama Kamu" required value="{{old('name')}}">
         </div>
         <div class="form-group">
-            <input type="email" name="email" class="form-control form-control-user" placeholder="Email Kamu" required>
+            <input type="email" name="email" class="form-control form-control-user" placeholder="Email Kamu" required value="{{old('email')}}">
         </div>
         <div class="form-group row">
             <div class="col-sm-6 mb-3 mb-sm-0">

@@ -11,6 +11,9 @@ Panduan
     #petunjuk{
         font-size: 10px
     }
+    .card-header .nav-link{
+        color:#4FB286 !important;
+    }
 </style>
 <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
 @endsection
@@ -21,6 +24,14 @@ Panduan
     <source src="assets/Cheater Cod MW.mp4" type="video/mp4">
     Your browser does not support HTML5 video.
 </video>
+{{-- <iframe>
+    <video width="400" controls>
+        <source src="{{asset('assets/Cheater Cod MW.mp4')}}" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+</iframe> --}}
+{{-- <iframe width="560" height="315" src="https://www.youtube.com/embed/U3t44o1_QI8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
+
 {{-- <iframe src="/assets/Cheater Cod MW.mp4"></iframe> --}}
 <p id="petunjuk"><em>Apabila kalian mengalami masalah koneksi lelet kalian bisa klik <a href="{{route('deskripsipanduan')}}">deskripsi</a></em></p>
     {{-- <div class="embed-responsive embed-responsive-16by9">

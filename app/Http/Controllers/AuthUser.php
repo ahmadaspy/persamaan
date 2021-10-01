@@ -12,11 +12,13 @@ use Illuminate\Support\Facades\DB;
 class AuthUser extends Controller
 {
     public function registerview(){
-        if(Auth::user()->level == 'siswa'){
-            return redirect()->route('videopanduan');
-        }
-        if(Auth::user()->level == 'guru'){
-            return redirect()->route('nilai_siswa');
+        if(Auth::user()){
+            if(Auth::user()->level == 'siswa'){
+                return redirect()->route('videopanduan');
+            }
+            if(Auth::user()->level == 'guru'){
+                return redirect()->route('nilai_siswa');
+            }
         }
         return view('register');
     }
@@ -38,10 +40,10 @@ class AuthUser extends Controller
             }
             catch(Exception){
                 // dd($e->getMessage());
-                return redirect()->route('register')->with('gagal', 'Email sudah ada terdaftar');
+                return redirect()->route('register')->withInput()->with('gagal', 'Email sudah ada terdaftar');
             }
         }else{
-            return redirect()->route('register')->with('gagal', 'Kode Referral tidak ditemukan');
+            return redirect()->route('register')->withInput()->with('gagal', 'Kode Referral tidak ditemukan');
         }
     }
     public function loginview(){
@@ -62,7 +64,7 @@ class AuthUser extends Controller
             }
             return redirect()->route('videopanduan');
         }
-        return redirect()->route('loginview')->with('gagal', 'Anda tidak terdaftar');
+        return redirect()->route('loginview')->with('gagal', 'Anda tidak terdaftar')->withInput();
     }
     public function logout(){
         Auth::logout();

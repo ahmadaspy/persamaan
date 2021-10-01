@@ -26,6 +26,9 @@ Route::group(['middleware' => ['auth', 'Checklevel:siswa']], function(){
     Route::get('/videopanduan', [Materi::class, 'videopanduan'])->name('videopanduan');
     Route::get('/deskripsipanduan', [Materi::class, 'deskripsipanduan'])->name('deskripsipanduan');
     Route::get('/kikd', [Materi::class, 'kikd'])->name('kikd');
+    Route::get('/persamaanlinearduavariabel_page1', [Materi::class, 'spldv_1'])->name('spldv_1');
+    Route::get('/persamaanlinearduavariabel_page2', [Materi::class, 'spldv_2'])->name('spldv_2');
+    Route::get('/persamaanlinearduavariabel_page3', [Materi::class, 'spldv_3'])->name('spldv_3');
 });
 Route::group(['middleware' => ['auth', 'Checklevel:guru']],function(){
     Route::get('/nilai_siswa', [Guru::class, 'nilaisiswa'])->name('nilai_siswa');

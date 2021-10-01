@@ -22,6 +22,7 @@
     <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
     {{-- <link rel="stylesheet" href="{{asset('mycostumecss.css')}}"> --}}
     <link rel="icon" href="{{asset('img/icon.png')}}">
+
     <style>
         #bars{
             color: #4FB286
@@ -38,7 +39,8 @@
         }
     </style>
     @yield('script')
-
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body id="page-top">
 
@@ -89,7 +91,7 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Materi :</h6>
-                        <a class="collapse-item" href="buttons.html">1.1 Menyelesaikan <br>Persamaan <br> Dengan Metode Grafik</a>
+                        <a class="collapse-item" href="{{route('spldv_1')}}">1.1 Menyelesaikan <br>Persamaan <br> Dengan Metode Grafik</a>
                         <a class="collapse-item" href="cards.html">1.2 Menyelesaikan <br>Persamaan<br> Linear Secara Aljabar</a>
                         <a class="collapse-item" href="cards.html">Kuis</a>
                     </div>
@@ -143,7 +145,7 @@
 
             <!-- Sidebar Toggle (Topbar) -->
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                <i class="fa fa-bars"></i>
+                <i class="fa fa-bars" style="color: #4FB286"></i>
             </button>
 
             <!-- Topbar Navbar -->
@@ -204,6 +206,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
+            @yield('halaman')
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
