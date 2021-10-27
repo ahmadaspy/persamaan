@@ -28,7 +28,8 @@ Route::group(['middleware' => ['auth', 'Checklevel:siswa']], function(){
     Route::get('/kikd', [Materi::class, 'kikd'])->name('kikd');
     Route::get('/persamaanlinearduavariabel_page1', [Materi::class, 'spldv_1'])->name('spldv_1');
     Route::get('/persamaanlinearduavariabel_page2', [Materi::class, 'spldv_2'])->name('spldv_2');
-    Route::get('/persamaanlinearduavariabel_page3', [Materi::class, 'spldv_3'])->name('spldv_3');
+    Route::get('/persamaanlinearduavariabel_page3/{id}', [Materi::class, 'spldv_3'])->name('spldv_3');
+    Route::post('/persamaanlinearduavariabel_page3/post', [Materi::class, 'post_latihan'])->name('post_latihan');
 });
 Route::group(['middleware' => ['auth', 'Checklevel:guru']],function(){
     Route::get('/nilai_siswa', [Guru::class, 'nilaisiswa'])->name('nilai_siswa');

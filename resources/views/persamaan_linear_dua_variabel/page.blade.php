@@ -10,7 +10,7 @@
                 </li>
                 <li class="page-item"><a class="page-link" href="{{route('spldv_1')}}">1</a></li>
                 <li class="page-item"><a class="page-link" href="{{route('spldv_2')}}">2</a></li>
-                <li class="page-item"><a class="page-link" href="{{route('spldv_3')}}">3</a></li>
+                <li class="page-item"><a class="page-link" href="{{route('spldv_3', 1)}}">3</a></li>
                 <li class="page-item">
                 {{-- <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
