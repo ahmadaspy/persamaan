@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mencoba_1;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
@@ -57,6 +58,18 @@ class Materi extends Controller
 
     }
     public function post_latihan(Request $request){
+        $request->validate([
+            'x1_1' => 'required',
+            'x1_2' => 'required',
+            'y1_1' => 'required',
+            'y1_2' => 'required',
+            'x2_1' => 'required',
+            'x2_2' => 'required',
+            'y2_1' => 'required',
+            'y2_2' => 'required',
+            'titik_potong_1' => 'required',
+            'titik_potong_2' => 'required'
+        ]);
         $jawaban = Mencoba_1::find($request->id);
         $koreksi = (object) array();
         $array = collect([]);
@@ -86,6 +99,36 @@ class Materi extends Controller
             $array->put('jawaban_y_1_2', true);
         }else{
             $array->put('jawaban_y_1_2', false);
+        }
+        if ($jawaban->jawaban_x_2_1==$request->x2_1){
+            $array->put('jawaban_x_2_1', true);
+        }else{
+            $array->put('jawaban_x_2_1', false);
+        }
+        if ($jawaban->jawaban_x_2_2==$request->x2_2){
+            $array->put('jawaban_x_2_2', true);
+        }else{
+            $array->put('jawaban_x_2_2', false);
+        }
+        if ($jawaban->jawaban_y_2_1==$request->y2_1){
+            $array->put('jawaban_y_2_1', true);
+        }else{
+            $array->put('jawaban_y_2_1', false);
+        }
+        if ($jawaban->jawaban_y_2_2==$request->y2_2){
+            $array->put('jawaban_y_2_2', true);
+        }else{
+            $array->put('jawaban_y_2_2', false);
+        }
+        if ($jawaban->titik_potong_1==$request->titik_potong_1){
+            $array->put('titik_potong_1', true);
+        }else{
+            $array->put('titik_potong_1', false);
+        }
+        if ($jawaban->titik_potong_2==$request->titik_potong_2){
+            $array->put('titik_potong_2', true);
+        }else{
+            $array->put('titik_potong_2', false);
         }
         $koreksi= collect($array);
         $percobaan = $request->percobaan + 1;
