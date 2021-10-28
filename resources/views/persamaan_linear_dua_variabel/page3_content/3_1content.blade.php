@@ -66,13 +66,29 @@
             <tbody>
                 <tr>
                     <td>\(x\)</td>
-                    <td ><input step="0.1" id="x2_1" name="x2_1" type="number" value="{{old('x2_1')}}"></td>
-                    <td><input step="0.1" id="x2_2" name="x2_2" type="number" value="{{old('x2_2')}}"></td>
+                    <td @if (!$koreksi==null)
+                            @if ($koreksi['jawaban_x_2_1']==false)
+                                class="table-danger"
+                            @endif
+                        @endif ><input step="0.1" id="x2_1" name="x2_1" type="number" value="{{old('x2_1')}}"></td>
+                    <td @if (!$koreksi==null)
+                            @if ($koreksi['jawaban_x_2_2']==false)
+                                class="table-danger"
+                            @endif
+                        @endif><input step="0.1" id="x2_2" name="x2_2" type="number" value="{{old('x2_2')}}"></td>
                 </tr>
                 <tr>
                     <td>\(y\)</td>
-                    <td><input step="0.1" id="y2_1" name="y2_1" type="number" value="{{old('y2_1')}}"></td>
-                    <td><input step="0.1" id="y2_2" name="y2_2" type="number" value="{{old('y2_2')}}"></td>
+                    <td @if (!$koreksi==null)
+                            @if ($koreksi['jawaban_y_2_1']==false)
+                                class="table-danger"
+                            @endif
+                        @endif><input step="0.1" id="y2_1" name="y2_1" type="number" value="{{old('y2_1')}}"></td>
+                    <td @if (!$koreksi==null)
+                            @if ($koreksi['jawaban_y_2_2']==false)
+                                class="table-danger"
+                            @endif
+                        @endif><input step="0.1" id="y2_2" name="y2_2" type="number" value="{{old('y2_2')}}"></td>
                 </tr>
                 <tr>
                     <td>TP</td>
@@ -92,7 +108,11 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>( <input type="number" step="0.1" name="titik_potong_1" id="titik_potong_1" value="{{old('titik_potong_1')}}"> , <input type="number" step="0.1" name="titik_potong_2" id="titik_potong_2" value="{{old('titik_potong_2')}}"> )</td>
+                    <td @if (!$koreksi==null)
+                            @if ($koreksi['titik_potong_1']==false || $koreksi['titik_potong_2']==false)
+                                class="table-danger"
+                            @endif
+                        @endif>( <input type="number" step="0.1" name="titik_potong_1" id="titik_potong_1" value="{{old('titik_potong_1')}}"> , <input type="number" step="0.1" name="titik_potong_2" id="titik_potong_2" value="{{old('titik_potong_2')}}"> )</td>
                 </tr>
             </tbody>
         </table>
