@@ -26,24 +26,32 @@
                     <td @if (!$koreksi==null)
                         @if ($koreksi['jawaban_x_1_1']==false)
                             class="table-danger"
+                        @else
+                            class="table-success"
                         @endif
                     @endif><input step="0.1" type="number" name="x1_1" id="x1_1" value="{{old('x1_1')}}"></td>
                     <td @if (!$koreksi==null)
-                    @if ($koreksi['jawaban_x_1_2']==false)
-                        class="table-danger"
-                    @endif
-                @endif><input step="0.1" type="number" name="x1_2" id="x1_2" value="{{old('x1_2')}}"></td>
+                            @if ($koreksi['jawaban_x_1_2']==false)
+                                class="table-danger"
+                            @else
+                                class="table-success"
+                            @endif
+                        @endif><input step="0.1" type="number" name="x1_2" id="x1_2" value="{{old('x1_2')}}"></td>
                 </tr>
                 <tr>
                     <td>\(y\)</td>
                     <td @if (!$koreksi==null)
                             @if ($koreksi['jawaban_y_1_1']==false)
                                 class="table-danger"
+                            @else
+                                class="table-success"
                             @endif
-                    @endif><input step="0.1" type="number" name="y1_1" id="y1_1" value="{{old('y1_1')}}"></td>
+                        @endif><input step="0.1" type="number" name="y1_1" id="y1_1" value="{{old('y1_1')}}"></td>
                     <td @if (!$koreksi==null)
                         @if ($koreksi['jawaban_y_1_2']==false)
                             class="table-danger"
+                        @else
+                            class="table-success"
                         @endif
                     @endif><input step="0.1" type="number" name="y1_2" id="y1_2" value="{{old('y1_2')}}"></td>
                 </tr>
@@ -69,11 +77,15 @@
                     <td @if (!$koreksi==null)
                             @if ($koreksi['jawaban_x_2_1']==false)
                                 class="table-danger"
+                            @else
+                                class="table-success"
                             @endif
                         @endif ><input step="0.1" id="x2_1" name="x2_1" type="number" value="{{old('x2_1')}}"></td>
                     <td @if (!$koreksi==null)
                             @if ($koreksi['jawaban_x_2_2']==false)
                                 class="table-danger"
+                            @else
+                                class="table-success"
                             @endif
                         @endif><input step="0.1" id="x2_2" name="x2_2" type="number" value="{{old('x2_2')}}"></td>
                 </tr>
@@ -82,11 +94,15 @@
                     <td @if (!$koreksi==null)
                             @if ($koreksi['jawaban_y_2_1']==false)
                                 class="table-danger"
+                            @else
+                                class="table-success"
                             @endif
                         @endif><input step="0.1" id="y2_1" name="y2_1" type="number" value="{{old('y2_1')}}"></td>
                     <td @if (!$koreksi==null)
                             @if ($koreksi['jawaban_y_2_2']==false)
                                 class="table-danger"
+                            @else
+                                class="table-success"
                             @endif
                         @endif><input step="0.1" id="y2_2" name="y2_2" type="number" value="{{old('y2_2')}}"></td>
                 </tr>
@@ -111,6 +127,8 @@
                     <td @if (!$koreksi==null)
                             @if ($koreksi['titik_potong_1']==false || $koreksi['titik_potong_2']==false)
                                 class="table-danger"
+                            @else
+                                class="table-success"
                             @endif
                         @endif>( <input type="number" step="0.1" name="titik_potong_1" id="titik_potong_1" value="{{old('titik_potong_1')}}"> , <input type="number" step="0.1" name="titik_potong_2" id="titik_potong_2" value="{{old('titik_potong_2')}}"> )</td>
                 </tr>
@@ -131,6 +149,7 @@
 <p class="text-center">Soal :
     <a href="{{route("spldv_3", 1)}}" class="btn btn-light ">1</a>
     <a href="{{route("spldv_3", 2)}}" class="btn btn-light ">2</a>
+    <a href="{{route("spldv_3", 3)}}" class="btn btn-light ">3</a>
 </p>
 
 
