@@ -45,6 +45,12 @@ class Materi extends Controller
     }
     public function spldv_3($id){
         $soal = Mencoba_1::find($id);
+        if($soal==null){
+            $soal = Mencoba_1::find(1);
+            $koreksi = null;
+            $percobaan = 0;
+            return view('persamaan_linear_dua_variabel.spldv_page3', compact('soal', 'koreksi', 'percobaan'));
+        }
         if(session()->get('koreksi')){
             $koreksi = session()->get('koreksi');
             $percobaan = session()->get('percobaan');
@@ -54,6 +60,7 @@ class Materi extends Controller
             $percobaan = 0;
             return view('persamaan_linear_dua_variabel.spldv_page3', compact('soal', 'koreksi', 'percobaan'));
         }
+
 
 
     }
@@ -73,10 +80,11 @@ class Materi extends Controller
         $jawaban = Mencoba_1::find($request->id);
         $koreksi = (object) array();
         $array = collect([]);
+        $benar = 0;
         if ($jawaban->jawaban_x_1_1==$request->x1_1) {
             // $koreksi_array = collect(['jawaban_x_1_1' => true]);
             $array->put('jawaban_x_1_1', true);
-
+            $benar = $benar + 1;
         }else{
             ;
             // array_push($koreksi_array, 'jawaban_x_1_1', false);
@@ -87,51 +95,63 @@ class Materi extends Controller
         }
         if ($jawaban->jawaban_x_1_2==$request->x1_2){
             $array->put('jawaban_x_1_2', true);
+            $benar = $benar + 1;
         }else{
             $array->put('jawaban_x_1_2', false);
         }
         if ($jawaban->jawaban_y_1_1==$request->y1_1){
             $array->put('jawaban_y_1_1', true);
+            $benar = $benar + 1;
         }else{
             $array->put('jawaban_y_1_1', false);
         }
         if ($jawaban->jawaban_y_1_2==$request->y1_2){
             $array->put('jawaban_y_1_2', true);
+            $benar = $benar + 1;
         }else{
             $array->put('jawaban_y_1_2', false);
         }
         if ($jawaban->jawaban_x_2_1==$request->x2_1){
             $array->put('jawaban_x_2_1', true);
+            $benar = $benar + 1;
         }else{
             $array->put('jawaban_x_2_1', false);
         }
         if ($jawaban->jawaban_x_2_2==$request->x2_2){
             $array->put('jawaban_x_2_2', true);
+            $benar = $benar + 1;
         }else{
             $array->put('jawaban_x_2_2', false);
         }
         if ($jawaban->jawaban_y_2_1==$request->y2_1){
             $array->put('jawaban_y_2_1', true);
+            $benar = $benar + 1;
         }else{
             $array->put('jawaban_y_2_1', false);
         }
         if ($jawaban->jawaban_y_2_2==$request->y2_2){
             $array->put('jawaban_y_2_2', true);
+            $benar = $benar + 1;
         }else{
             $array->put('jawaban_y_2_2', false);
         }
         if ($jawaban->titik_potong_1==$request->titik_potong_1){
             $array->put('titik_potong_1', true);
+            $benar = $benar + 1;
         }else{
             $array->put('titik_potong_1', false);
         }
         if ($jawaban->titik_potong_2==$request->titik_potong_2){
             $array->put('titik_potong_2', true);
+            $benar = $benar + 1;
         }else{
             $array->put('titik_potong_2', false);
         }
         $koreksi= collect($array);
         $percobaan = $request->percobaan + 1;
+        if($benar == 10){
+            return redirect()->route('spldv_3', $request->id)->withInput()->with('koreksi', $koreksi)->with('percobaan', $percobaan)->with('benar','Jawaban anda benar');
+        }
         return redirect()->route('spldv_3', $request->id)->withInput()->with('koreksi', $koreksi)->with('percobaan', $percobaan);
     }
 }
