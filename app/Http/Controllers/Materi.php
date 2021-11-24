@@ -154,4 +154,19 @@ class Materi extends Controller
         }
         return redirect()->route('spldv_3', $request->id)->withInput()->with('koreksi', $koreksi)->with('percobaan', $percobaan);
     }
+    public function pembahasan_mencoba_1($id){
+        $url = url()->previous();
+        $route = app('router')->getRoutes($url)->match(app('request')->create($url))->getName();
+        $jawaban = Mencoba_1::find($id);
+        if($id==1 && $route=='spldv_3'){
+            return view('persamaan_linear_dua_variabel.page3_pembahasan.3_1pembahasan')->with('jawaban', $jawaban);
+        }
+        if($id==2 && $route=='spldv_3'){
+            return view('persamaan_linear_dua_variabel.page3_pembahasan.3_2pembahasan')->with('jawaban', $jawaban);
+        }
+        if($id==3 && $route=='spldv_3'){
+            return view('persamaan_linear_dua_variabel.page3_pembahasan.3_2pembahasan')->with('jawaban', $jawaban);
+        }
+        return redirect()->route('spldv_3', $id);
+    }
 }

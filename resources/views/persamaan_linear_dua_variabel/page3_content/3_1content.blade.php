@@ -1,6 +1,6 @@
 <p>
     <ol>
-        <li>
+        <li value="{{$soal->id}}">
             \({{$soal->soal_1}}\)<br>
             \({{$soal->soal_2}}\)
         </li>

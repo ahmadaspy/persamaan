@@ -2,6 +2,9 @@
 @section('script')
 <link href="{{asset('CustomCSS/CustomStyleMateri.css')}}" rel="stylesheet">
 @endsection
+@section('title')
+Mari Mencoba SPLDV soal {{$soal->id}}
+@endsection
 @section('content')
 @if ($errors->any())
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -13,7 +16,7 @@
 @endif
 @if (session()->has('benar'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Benar !</strong> kalian bisa lihat pembahasan <a href="">disini</a>.
+        {{-- <strong>Benar !</strong> kalian bisa lihat pembahasan <a href="{{route('pembahasan_mencoba_1', $soal->id, 3)}}" target="_blank" rel="noreferrer noopener">disini</a>. --}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -36,15 +39,51 @@
 
                 <div id="collapsePetunjuk" class="collapse" aria-labelledby="headingOne" data-parent="#petunjuk">
                     <div class="card-body">
-                        <p class="text-center">Mempunyai dua buah variabel di dalam persamaannya dengan variabel tidak hanya terpaku kepada \(x\) dan \(y\), variabel bebas bisa seperti \(j\) dan \(k\), atau lainnya.<br>
-                        Persamaan linear ditunjukan adanya tanda "\(=\)"</p>
+                        <ol>
+                            <li><p>Semua kotak harus di isi</p></li>
+                            <li>Klik tombol cek jawaban untuk mencek jawaban <button class="btn btn-success float-right m-4">Cek Jawaban</button></li>
+                            <li>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <th colspan="2">Soal</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>\(x\)</td>
+                                            <td class="table-success">Hijau merupakan jawaban yang benar</td>
+                                        </tr>
+                                        <tr>
+                                            <td>\(y\)</td>
+                                            <td class="table-danger">Merah merupakan jawaban yang salah</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
         @include('persamaan_linear_dua_variabel.page3_content.3_1content')
-        </table>
-        <div class="card">
+        {{-- <div class="accordion" id="Koordinat">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseKoordinat" aria-expanded="false" aria-controls="collapseKoordinat" id="accordionKoordinat">
+                            Gunakan koordinat \(x\) dan \(y\) di bawah untuk membantu kalian mencari titik potong
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseKoordinat" class="collapse" aria-labelledby="headingOne" data-parent="#Koordinat">
+                    <div class="card-body">
+                        <iframe class="embed-responsive-item" src="https://www.geogebra.org/classic/bsugmt7h" class="hape" id="geogebra" allowfullscreen  frameborder="0">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        {{-- <div class="card">
             <div class="card-header">
                 <h6 class="font-weight-bold">Gunakan koordinat \(x\) dan \(y\) di bawah untuk membantu kalian mencari titik potong</h6>
             </div>
@@ -54,6 +93,12 @@
                     </iframe>
                 </div>
             </div>
+        </div> --}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Gunakan koordinat \(x\) dan \(y\) untuk membantu kalian mencari titik potong !, klik <a href="{{route('koordinat_geogebra')}}" target="_blank" rel="noreferrer noopener">disini</a> untuk membuka !
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
         </div>
     </div>
 </div>
@@ -66,7 +111,7 @@
             </div>
             <div class="modal-body">
 				<p>Apabila kalian kesulitan dalam menyelesaikan masalah tersebut klik link dibawah untuk melihat pembahasan</p>
-                <button type="button" class="btn btn-primary btn-lg btn-block"><a href="" class="text-light">Pembahasan</a></button>
+                <a href="{{route('pembahasan_mencoba_1', $soal->id)}}" target="_blank" rel="noreferrer noopener" class="text-light btn btn-primary btn-lg active btn-block" role="button">Pembahasan</a>
             </div>
         </div>
     </div>
