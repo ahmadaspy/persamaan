@@ -45,20 +45,21 @@ class Materi extends Controller
     }
     public function spldv_3($id){
         $soal = Mencoba_1::find($id);
+        $rand = rand(1,10);
         if($soal==null){
             $soal = Mencoba_1::find(1);
             $koreksi = null;
             $percobaan = 0;
-            return view('persamaan_linear_dua_variabel.spldv_page3', compact('soal', 'koreksi', 'percobaan'));
+            return view('persamaan_linear_dua_variabel.spldv_page3', compact('soal', 'koreksi', 'percobaan', 'rand'));
         }
         if(session()->get('koreksi')){
             $koreksi = session()->get('koreksi');
             $percobaan = session()->get('percobaan');
-            return view('persamaan_linear_dua_variabel.spldv_page3', compact('soal', 'koreksi', 'percobaan'));
+            return view('persamaan_linear_dua_variabel.spldv_page3', compact('soal', 'koreksi', 'percobaan', 'rand'));
         }else{
             $koreksi = null;
             $percobaan = 0;
-            return view('persamaan_linear_dua_variabel.spldv_page3', compact('soal', 'koreksi', 'percobaan'));
+            return view('persamaan_linear_dua_variabel.spldv_page3', compact('soal', 'koreksi', 'percobaan', 'rand'));
         }
 
 
@@ -149,10 +150,11 @@ class Materi extends Controller
         }
         $koreksi= collect($array);
         $percobaan = $request->percobaan + 1;
+        $rand = rand(1,10);
         if($benar == 10){
             return redirect()->route('spldv_3', $request->id)->withInput()->with('koreksi', $koreksi)->with('percobaan', $percobaan)->with('benar','Jawaban anda benar');
         }
-        return redirect()->route('spldv_3', $request->id)->withInput()->with('koreksi', $koreksi)->with('percobaan', $percobaan);
+        return redirect()->route('spldv_3', $request->id)->withInput()->with('koreksi', $koreksi)->with('percobaan', $percobaan)->with('rand', $rand);
     }
     public function pembahasan_mencoba_1($id){
         $url = url()->previous();
@@ -167,6 +169,7 @@ class Materi extends Controller
         if($id==3 && $route=='spldv_3'){
             return view('persamaan_linear_dua_variabel.page3_pembahasan.3_2pembahasan')->with('jawaban', $jawaban);
         }
+
         return redirect()->route('spldv_3', $id);
     }
 }
