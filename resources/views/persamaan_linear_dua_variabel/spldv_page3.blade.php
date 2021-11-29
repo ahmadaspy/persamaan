@@ -111,7 +111,13 @@ Mari Mencoba SPLDV soal {{$soal->id}}
             </div>
             <div class="modal-body">
 				<p>Apabila kalian kesulitan dalam menyelesaikan masalah tersebut klik link dibawah untuk melihat pembahasan</p>
-                <a href="{{route('pembahasan_mencoba_1', $soal->id, '?key=1234')}}" target="_blank" rel="noreferrer noopener" class="text-light btn btn-primary btn-lg active btn-block" role="button">Pembahasan</a>
+                <form method="POST" target="_blank" rel="noreferrer noopener" action="{{route('pembahasan_mencoba_1')}}">
+                    @csrf
+                    <input hidden name="id" value="{{$soal->id}}">
+                    <input hidden name="percobaan" value="{{$percobaan}}">
+                    <button type="submit" class="text-light btn btn-primary btn-lg active btn-block" >Pembahasan</button>
+                </form>
+                {{-- <a href="{{route('pembahasan_mencoba_1', $soal->id)}}" target="_blank" rel="noreferrer noopener" class="text-light btn btn-primary btn-lg active btn-block" role="button">Pembahasan</a> --}}
             </div>
         </div>
     </div>

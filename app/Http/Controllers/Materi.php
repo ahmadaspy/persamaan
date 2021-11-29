@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mencoba_1;
+use Exception;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Throwable;
 
 class Materi extends Controller
 {
@@ -156,20 +158,34 @@ class Materi extends Controller
         }
         return redirect()->route('spldv_3', $request->id)->withInput()->with('koreksi', $koreksi)->with('percobaan', $percobaan)->with('rand', $rand);
     }
-    public function pembahasan_mencoba_1($id){
-        $url = url()->previous();
-        $route = app('router')->getRoutes($url)->match(app('request')->create($url))->getName();
-        $jawaban = Mencoba_1::find($id);
-        if($id==1 && $route=='spldv_3'){
-            return view('persamaan_linear_dua_variabel.page3_pembahasan.3_1pembahasan')->with('jawaban', $jawaban);
-        }
-        if($id==2 && $route=='spldv_3'){
-            return view('persamaan_linear_dua_variabel.page3_pembahasan.3_2pembahasan')->with('jawaban', $jawaban);
-        }
-        if($id==3 && $route=='spldv_3'){
-            return view('persamaan_linear_dua_variabel.page3_pembahasan.3_2pembahasan')->with('jawaban', $jawaban);
+    public function pembahasan_mencoba_1(Request $request){
+        // $url = url()->previous();
+        // $url = str_replace(url('/'), '', url()->previous());
+
+        // $route = app('router')->getRoutes($url)->match(app('request')->create($url))->getName();
+        $jawaban = Mencoba_1::find($request->id);
+        // if($id==1 && $route=='spldv_3'){
+        //     return view('persamaan_linear_dua_variabel.page3_pembahasan.3_1pembahasan')->with('jawaban', $jawaban);
+        // }
+        // if($id==2 && $route=='spldv_3'){
+        //     return view('persamaan_linear_dua_variabel.page3_pembahasan.3_2pembahasan')->with('jawaban', $jawaban);
+        // }
+        // if($id==3 && $route=='spldv_3'){
+        //     return view('persamaan_linear_dua_variabel.page3_pembahasan.3_2pembahasan')->with('jawaban', $jawaban);
+        // }
+        try{
+            if($request->id==1 && $request->percobaan>3){
+                return view('persamaan_linear_dua_variabel.page3_pembahasan.3_1pembahasan')->with('jawaban', $jawaban);
+            }
+            if($request->id==2 && $request->percobaan>3){
+                return view('persamaan_linear_dua_variabel.page3_pembahasan.3_1pembahasan')->with('jawaban', $jawaban);
+            }
+            if ($request->id==3 && $request->percobaan>3) {
+                return view('persamaan_linear_dua_variabel.page3_pembahasan.3_1pembahasan')->with('jawaban', $jawaban);
+            }
+        }catch(Exception){
+            return redirect()->route('spldv_3', 1);
         }
 
-        return redirect()->route('spldv_3', $id);
     }
 }

@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth', 'Checklevel:siswa']], function(){
     Route::get('/persamaanlinearduavariabel_page2', [Materi::class, 'spldv_2'])->name('spldv_2');
     Route::get('/persamaanlinearduavariabel_page3/{id}', [Materi::class, 'spldv_3'])->name('spldv_3');
     Route::post('/persamaanlinearduavariabel_page3/post', [Materi::class, 'post_latihan'])->name('post_latihan');
-    Route::get('/pembahasan/{id}', [Materi::class, 'pembahasan_mencoba_1'])->name('pembahasan_mencoba_1');
+    Route::post('/pembahasan', [Materi::class, 'pembahasan_mencoba_1'])->name('pembahasan_mencoba_1');
     Route::get('/koordinat_geogebra', function(){
         return view('persamaan_linear_dua_variabel.spldv_page3_koordinat_geogebra');
     })->name('koordinat_geogebra');
