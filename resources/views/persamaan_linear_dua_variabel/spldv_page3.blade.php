@@ -16,6 +16,13 @@ Mari Mencoba SPLDV soal {{$soal->id}}
 @endif
 @if (session()->has('benar'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <form method="POST" target="_blank" rel="noreferrer noopener" action="{{route('pembahasan_mencoba_1')}}">
+            @csrf
+            <input hidden name="id" value="{{$soal->id}}">
+            <input hidden name="percobaan" value=4>
+            <strong>Benar !</strong> kalian bisa lihat pembahasan
+            <button type="submit" class="btn btn-success" >Disini</button>
+        </form>
         {{-- <strong>Benar !</strong> kalian bisa lihat pembahasan <a href="{{route('pembahasan_mencoba_1', $soal->id, 3)}}" target="_blank" rel="noreferrer noopener">disini</a>. --}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>

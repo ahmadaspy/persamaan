@@ -146,7 +146,7 @@ Pembahasan Soal {{$jawaban->id}}
         <div class="row">
             {{-- <iframe src="https://www.geogebra.org/calculator/mmytqypq?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe> --}}
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.geogebra.org/calculator/mmytqypq?embed" class="hape" id="geogebra" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0">
+                <iframe class="embed-responsive-item" src="{{ $jawaban->link_geogebra }}" class="hape" id="geogebra" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0">
                 </iframe>
             </div>
         </div>

@@ -27,6 +27,7 @@ class CreateMencoba1sTable extends Migration
             $table->float('jawaban_y_2_2');
             $table->float('titik_potong_1');
             $table->float('titik_potong_2');
+            $table->string('link_geogebra');
             $table->timestamps();
         });
     }
