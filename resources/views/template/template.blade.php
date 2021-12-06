@@ -92,8 +92,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Materi :</h6>
                         <a class="collapse-item" href="{{route('spldv_1')}}">1.1 Menyelesaikan <br>Persamaan <br> Dengan Metode Grafik</a>
-                        <a class="collapse-item" href="cards.html">1.2 Menyelesaikan <br>Persamaan<br> Linear Secara Aljabar</a>
-                        <a class="collapse-item" href="cards.html">Kuis</a>
+                        <a class="collapse-item" href="{{route('subtitusi_spldv')}}">1.2 Menyelesaikan <br>Persamaan<br> Linear Secara Aljabar</a>
+                        <a class="collapse-item" href="">Kuis</a>
                     </div>
                 </div>
             </li>
@@ -106,9 +106,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Materi :</h6>
-                        <a class="collapse-item" href="buttons.html">2.1 Menyelesaikan<br>Sistem Persamaan<br>Linear Tiga Variabel</a>
-                        <a class="collapse-item" href="cards.html">2.2 Masalah Yang <br>Melibatkan Persamaan<br>Linear Tiga Variabel</a>
-                        <a class="collapse-item" href="cards.html">Kuis</a>
+                        <a class="collapse-item" href="">2.1 Menyelesaikan<br>Sistem Persamaan<br>Linear Tiga Variabel</a>
+                        <a class="collapse-item" href="">2.2 Masalah Yang <br>Melibatkan Persamaan<br>Linear Tiga Variabel</a>
+                        <a class="collapse-item" href="">Kuis</a>
                     </div>
                 </div>
             </li>

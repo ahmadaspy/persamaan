@@ -34,6 +34,9 @@ Route::group(['middleware' => ['auth', 'Checklevel:siswa']], function(){
     Route::get('/koordinat_geogebra', function(){
         return view('persamaan_linear_dua_variabel.spldv_page3_koordinat_geogebra');
     })->name('koordinat_geogebra');
+    route::get('/MetodeSubtitusiSPLDV', function(){
+        return view('persamaan_linear_dua_variabel.Metode Subtitusi.teori_page_1');
+    })->name('subtitusi_spldv');
 });
 Route::group(['middleware' => ['auth', 'Checklevel:guru']],function(){
     Route::get('/nilai_siswa', [Guru::class, 'nilaisiswa'])->name('nilai_siswa');
