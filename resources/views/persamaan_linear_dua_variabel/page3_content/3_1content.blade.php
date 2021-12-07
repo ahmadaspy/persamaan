@@ -1,8 +1,8 @@
 <p>
     <ol>
         <li value="{{$soal->id}}">
-            \({{$soal->soal_1}}\)<br>
-            \({{$soal->soal_2}}\)
+            $${{$soal->soal_1}}$$<br>
+            $${{$soal->soal_2}}$$
         </li>
     </ol>
     <br>
@@ -17,7 +17,7 @@
         <table  class="table table-bordered" id="table_1">
             <thead class="text-center">
                 <tr>
-                    <th colspan="3">\({{$soal->soal_1}}\)</th>
+                    <th colspan="3">\({{$soal->soal_1}}$$</th>
                 </tr>
             </thead>
             <tbody>
