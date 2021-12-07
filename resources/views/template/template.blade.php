@@ -92,7 +92,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Materi :</h6>
                         <a class="collapse-item" href="{{route('spldv_1')}}">1.1 Menyelesaikan <br>Persamaan <br> Dengan Metode Grafik</a>
-                        <a class="collapse-item" href="{{route('subtitusi_spldv')}}">1.2 Menyelesaikan <br>Persamaan<br> Linear Secara Aljabar</a>
+                        <a class="collapse-item" href="{{route('subtitusi_spldv_1')}}">1.2 Menyelesaikan <br>Persamaan<br> Linear Secara Aljabar</a>
                         <a class="collapse-item" href="">Kuis</a>
                     </div>
                 </div>

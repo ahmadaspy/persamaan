@@ -188,4 +188,7 @@ class Materi extends Controller
         }
 
     }
+    public function spldv_subtitusi_2($id){
+
+    }
 }
