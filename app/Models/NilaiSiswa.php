@@ -14,4 +14,7 @@ class NilaiSiswa extends Model
         'kuis_2',
         'evaluasi',
     ];
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

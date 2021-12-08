@@ -19,5 +19,7 @@
         </div>
     </div>
 </div>
-
+@endsection
+@section('halaman')
+@include('persamaan_linear_dua_variabel.Metode Subtitusi.Subtitusi_page')
 @endsection

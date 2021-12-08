@@ -1,11 +1,19 @@
 <p>
     <ol>
-        <li value="{{$soal->id}}">
-            $${{$soal->soal_1}}$$<br>
-            $${{$soal->soal_2}}$$
+        <li value="{{$soal->id}}" class="float-left">
+            {{-- \({{$soal->soal_1}}\)
+            \({{$soal->soal_2}}\) --}}
+            $${{ $soal->soal_1 }}$$
+            $${{ $soal->soal_2 }}$$
+            {{-- <div class="float-left">
+                $${{$soal->soal_1}}$$
+                $${{$soal->soal_2}}$$
+            </div><br><br> --}}
+
         </li>
     </ol>
-    <br>
+    <br><br><br><br><br>
+
     selesaikan masalah di atas dengan menggunakan metode grafik <br>
 </p>
 
@@ -17,7 +25,7 @@
         <table  class="table table-bordered" id="table_1">
             <thead class="text-center">
                 <tr>
-                    <th colspan="3">\({{$soal->soal_1}}$$</th>
+                    <th colspan="3">$${{$soal->soal_1}}$$</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,7 +76,7 @@
         <table class="table table-bordered" id="table_2">
             <thead class="text-center">
                 <tr>
-                    <th colspan="3">\({{$soal->soal_2}}\)</th>
+                    <th colspan="3">$${{$soal->soal_2}}$$</th>
                 </tr>
             </thead>
             <tbody>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NilaiSiswa;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -35,6 +36,7 @@ class AuthUser extends Controller
                 $user->remember_token = Str::random(40);
                 $user->nama_guru = $nama_guru;
                 $user->save();
+                NilaiSiswa::insert(['siswa_id'=>$user->id]);
                 Auth::login($user);
                 return redirect()->route('videopanduan');
             }
